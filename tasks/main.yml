@@ -1,2 +1,6 @@
 ---
 # tasks file for ansible-nginx-slac
+
+- name: Install nginx
+  apt:
+    pkg: nginx
