@@ -23,11 +23,11 @@ port:
   tcp:80:
     listening: true
     ip:
-    - 0.0.0.0
+      - 0.0.0.0
   tcp6:80:
     listening: true
     ip:
-    - '::'
+      - '::'
 http:
   http://localhost:
     status: 200
