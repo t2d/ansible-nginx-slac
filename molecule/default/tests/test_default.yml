@@ -1,8 +1,35 @@
-# Molecule managed
-
 ---
 file:
-  /etc/hosts:
+  /etc/nginx/sites-enabled/default:
     exists: true
+    mode: "0777"
+    size: 34
     owner: root
     group: root
+    linked-to: /etc/nginx/sites-available/default
+    filetype: symlink
+    contains: []
+package:
+  nginx:
+    installed: true
+service:
+  nginx:
+    enabled: true
+    running: true
+process:
+  nginx:
+    running: true
+port:
+  tcp:80:
+    listening: true
+    ip:
+    - 0.0.0.0
+  tcp6:80:
+    listening: true
+    ip:
+    - '::'
+http:
+  http://localhost:
+    status: 200
+    body:
+      - Welcome to nginx!
