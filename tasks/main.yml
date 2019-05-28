@@ -5,8 +5,24 @@
   apt:
     pkg: nginx
 
+- name: Copy default site
+  template:
+    src: index.nginx-debian.html.j2
+    dest: /var/www/html/index.nginx-debian.html
+    owner: root
+    group: root
+    mode: 0644
+
 - name: Start nginx
   service:
     name: nginx
     state: started
     enabled: true
+
+- name: Copy goss tests
+  template:
+    src: test_nginx.yml.j2
+    dest: "{{ goss_test_directory }}/test_nginx.yml"
+  when: goss_test_directory is defined
+  tags:
+    - goss

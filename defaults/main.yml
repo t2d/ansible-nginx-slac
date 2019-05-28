@@ -1,2 +1,4 @@
 ---
 # defaults file for ansible-nginx-slac
+
+nginx_heading: Welcome to nginx!
