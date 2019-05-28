@@ -1,0 +1,9 @@
+---
+- hosts: localhost
+  become: true
+  roles:
+    - ansible-nginx-slac
+    - base_goss
+  vars:
+    nginx_heading: Hello SLAC!
+    goss_test_directory: /etc/goss.d

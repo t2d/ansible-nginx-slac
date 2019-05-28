@@ -1,0 +1,18 @@
+---
+dependency:
+  name: galaxy
+  options:
+    role-file: molecule/localhost/requirements.yml
+driver:
+  name: delegated
+  options:
+    managed: false
+    ansible_connection_options:
+      ansible_connection: local
+platforms:
+  - name: localhost
+verifier:
+  name: goss
+  lint:
+    name: yamllint
+  enabled: false

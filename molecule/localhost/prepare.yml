@@ -1,0 +1,7 @@
+---
+- hosts: localhost
+  become: true
+  roles:
+    - base_goss
+  vars:
+    goss_test_directory: /etc/goss.d
